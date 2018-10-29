@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Document</title>
+	<link rel=stylesheet href="css/jquery.fullPage.css">
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/jquery.fullPage.min.js"></script>
+	<style>
+	body{
+		padding:0;
+		margin:0;
+	}
+	.component{
+		width:50%;
+		height:50px;
+		margin-bottom:20px;
+		background-color:#ccc;
+	}
+	</style>
+	<script>
+		$(function(){
+			$("#h5").fullpage({
+				verticalCentered:true,
+				css3:true,
+				sectionsColor: ['#254875', '#00FF00', '#254587'],
+				anchors: ['1', '2', '3'],
+				navigation:true,
+				navigationPosition:'right',
+				navigationTooltips:["元旦快乐","新年快乐","2017快乐"],
+				slidesNavigation:true,
+				slidesNavPosition:'bottom',
+				loopBottom:true,
+				loopHorizontal:true,
+				onLeave:function(index,nextIndex,direction){
+					$("#h5").find(".page").eq(index-1).trigger("onLeave");
+				},
+				afterLoad:function(anchorLink,index){
+					$("#h5").find(".page").eq(index-1).trigger("onLoad");
+				}
+
+			});
+			$(".page").on("onLoad",function(){
+				console.log($(this).attr("id"),"==>","onLoad");
+				$(this).find(".component").triggerHandler("onLoad");
+			});
+			$(".page").on("onLeave",function(){
+				console.log($(this).attr("id"),"==>","onLeave");
+				$(this).find(".component").triggerHandler("onLeave");
+			});
+			$(".component").on("onLoad",function(){
+				console.log("component-onLoad",$(this).text());
+				$(this).fadeIn();
+			});
+			$(".component").on("onLeave",function(){
+				console.log("component-onLeave",$(this).text());
+				$(this).fadeOut();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="h5">
+		<div class="page section" id="page1">
+			<div class="component log">log</div>
+			<div class="component slogan">slogan</div>
+		</div>
+		<div class="page section" id="page2">
+			<div class="component log">cookie</div>
+			<div class="component slogan">ladar</div>
+		</div>
+		<div class="section" id="page3">
+			<div class="component log">line</div>
+			<div class="component slogan">bar</div>
+			<!-- <div class="slide">第四屏的第一屏</div>
+			<div class="slide">第四屏的第二屏</div>
+			<div class="slide">第四屏的第三屏</div>
+			<div class="slide">第四屏的第四屏</div> -->
+		</div>
+		<!-- <div class="page section" id="page-4">
+			<div class="component log">第四屏</div>
+			<div class="component slogan">第四屏1</div>
+			<div class="slide">第四屏的第一屏</div>
+			<div class="slide">第四屏的第二屏</div>
+			<div class="slide">第四屏的第三屏</div>
+			<div class="slide">第四屏的第四屏</div>
+		</div> -->
+	</div>
+</body>
+</html>

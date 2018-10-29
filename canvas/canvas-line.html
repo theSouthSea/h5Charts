@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>canvas绘制线段</title>
+</head>
+
+<body>
+    <h2>canvas绘制线段</h2>
+    <div class="canvasContainer"></div>
+    <script>
+    var canvas = document.createElement("canvas");
+    canvas.width = 300;
+    canvas.height = 300;
+    var ctx = canvas.getContext("2d"); //获取Canvas绘图对象
+    // ctx.beginPath();
+    // ctx.strokeStyle = "red"; //设置线条颜色
+    // ctx.moveTo(0,0);
+    // ctx.lineTo(120,120);
+    // ctx.closePath();
+    ctx.strokeStyle = "red"; //设置线条颜色
+    ctx.moveTo(0,0);
+    ctx.lineTo(120,120);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.strokeStyle = "blue"; //设置线条颜色
+    ctx.moveTo(120,0);
+    ctx.lineTo(0,120);
+    // ctx.closePath();
+    ctx.stroke();
+    document.body.appendChild(canvas);
+    </script>
+</body>
+
+</html>

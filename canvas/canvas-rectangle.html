@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>canvas绘制矩形</title>
+</head>
+<body>
+    <h2>canvas绘制矩形</h2>
+    <div id="clearRect">清除矩形区域</div>
+    <div class="canvasContainer"></div>
+    <script>
+    var canvas=document.createElement("canvas");
+    canvas.width=300;
+    canvas.height=300;
+    var ctx=canvas.getContext("2d");//获取Canvas绘图对象
+    ctx.strokeStyle="red";//设置线条颜色
+    ctx.fillStyle="#0f0";//设置填充颜色
+    ctx.fillRect(0,0,300,300);
+    ctx.strokeRect(0,0,300,300);
+    document.body.appendChild(canvas);
+
+    document.getElementById("clearRect").onclick=function(){
+        ctx.clearRect(100,100,300,300);
+    }
+    </script>
+</body>
+</html>

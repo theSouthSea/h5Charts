@@ -1,0 +1,21 @@
+/* 雷达图组件样式 */
+.h5_component_pie{
+}
+.h5_component_pie canvas{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+.h5_component_pie .text{
+	position: absolute;
+	text-align: center;
+	height: 24px;
+	z-index: 99;
+	-webkit-transition: all 1s;
+	   -moz-transition: all 1s;
+	    -ms-transition: all 1s;
+	     -o-transition: all 1s;
+	        transition: all 1s;
+}

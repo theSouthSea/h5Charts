@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>基础组件</title>
+    <link rel=stylesheet href="../css/H5ComponentBase.css">
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/H5ComponentPointBase.js"></script>
+</head>
+<body>
+    <div class="iphone"></div>
+    <script>
+    var cfg={
+        type:"point",
+        width:300,
+        height:300,
+        data:[
+            // ['A项',.4,'green'],
+            // ['B项',.2,'blue',0,"-60%"],
+            ['C项',.2,'red',0,"120%"]
+        ],
+        css:{
+            "border-radius":"50%",
+            "background-color":"red"
+        }
+        // text:"Hellow World!我是图标通用组件"
+    }
+    var h5=new H5ComponentPointBase('myPointBase',cfg);
+    $(".iphone").append(h5);
+    </script>
+</body>
+</html>
